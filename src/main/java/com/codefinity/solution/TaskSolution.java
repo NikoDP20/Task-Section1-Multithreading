@@ -9,18 +9,18 @@ public class TaskSolution {
     public static final BigInteger[] results = new BigInteger[SIZE_MASSIVE]; //DO NOT CHANGE
 
     public static void main(String[] args) throws InterruptedException {  //DO NOT CHANGE
-        calculateFactorialsInParallel();
+        calculateFactorialsInParallelSolution();
 
-        printMassive(results);
+        printMassiveSolution(results);
     }
 
-    public static void calculateFactorialsInParallel() throws InterruptedException{
+    public static void calculateFactorialsInParallelSolution() throws InterruptedException{
         Thread[] threads = new Thread[SIZE_MASSIVE];
 
         for (int i = 0; i < SIZE_MASSIVE; i++) {
             int index = i;
             threads[i] = new Thread(() -> {
-                results[index] = factorial(index);
+                results[index] = factorialSolution(index);
             });
             threads[i].start(); // Start the thread
         }
@@ -30,7 +30,7 @@ public class TaskSolution {
         }
     }
 
-    public static BigInteger factorial(Integer length) {  //DO NOT CHANGE
+    public static BigInteger factorialSolution(Integer length) {  //DO NOT CHANGE
         BigInteger result = new BigInteger("1");
 
         for(int i = 1; i <= length; i++) {
@@ -40,7 +40,7 @@ public class TaskSolution {
         return result;
     }
 
-    public static void printMassive(BigInteger[] array) {  //DO NOT CHANGE
+    public static void printMassiveSolution(BigInteger[] array) {  //DO NOT CHANGE
         System.out.println(Arrays.toString(array));
     }
 
