@@ -16,6 +16,15 @@ public class TaskThread {
 
     public static void calculateFactorialsInParallel() throws InterruptedException{
         //TODO: Write the logic for creating 100 threads and merging the entire array 'results'
+        Thread[] threads = new Thread[SIZE_MASSIVE];
+        for (int i = 0; i < SIZE_MASSIVE; i++){
+            final int index = i;
+            threads[i] = new Thread (() -> {results[index] = factorial(index);});
+            threads[i].start();
+        }
+        for (Thread thread :threads){
+            thread.join();
+        }
     }
 
     public static BigInteger factorial(Integer length) {  //DO NOT CHANGE
